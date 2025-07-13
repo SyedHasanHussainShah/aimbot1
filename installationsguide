@@ -1,0 +1,163 @@
+# Aimbot - Client Installation Guide (GPU Edition for Call of Duty Mobile)
+
+Welcome! This guide explains how to install and run **Aimbot** on a Windows PC for **Call of Duty Mobile**.  
+**An Nvidia GPU with CUDA support is required. CPU-only systems will NOT work.**
+
+---
+
+## 🚦 System Requirements
+
+- Windows 10 or 11 (64-bit)
+- Nvidia GPU (RTX or other CUDA 12.1+ compatible)
+- Latest Nvidia GPU Driver
+- CUDA Toolkit 12.1 or newer ([Get it here](https://developer.nvidia.com/cuda-toolkit-archive))
+- Python 3.10 (do not use 3.12+)
+- Git (optional, for easy download)
+- Your Android phone with CoD Mobile installed
+- USB cable for phone connection
+
+---
+
+## 1️⃣ Nvidia GPU and CUDA Installation
+
+1. **Update your GPU Driver:**  
+   Get the latest from [Nvidia Drivers Download](https://www.nvidia.com/Download/index.aspx)
+2. **Install CUDA Toolkit 12.1 or higher:**  
+   Download from [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive)
+3. **(Optional, Recommended) Install cuDNN:**  
+   [cuDNN Download](https://developer.nvidia.com/cudnn)  
+   (Extract and copy files into your CUDA directory if needed.)
+
+---
+
+## 2️⃣ Python & Package Setup
+
+1. **Install Python 3.10:**  
+   [Download Python 3.10](https://www.python.org/downloads/)  
+   ✔️ Check "Add Python to PATH" during install
+
+2. **Open PowerShell or CMD as Administrator and run:**  
+   ```bash
+   python -m ensurepip --upgrade
+   ```
+
+3. **Remove any existing torch packages:**  
+   ```bash
+   pip uninstall torch torchvision torchaudio
+   ```
+
+4. **Install PyTorch for CUDA 12.1:**  
+   Go to [PyTorch Get Started](https://pytorch.org/get-started/locally), select:
+   - Windows, pip, Python, CUDA 12.1  
+   Run the command shown, e.g.:
+   ```bash
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+   ```
+
+5. **Install all other required packages:**  
+   ```bash
+   pip install ultralytics==8.3.78 mss screeninfo pywin32 supervision opencv-python
+   ```
+
+---
+
+## 3️⃣ Get the Aimbot Project
+
+**Option A: Download ZIP**
+1. Download the ZIP from your developer (or GitHub).
+2. Extract the folder (e.g. `aimbot`) to your desired location.
+
+**Option B: Clone with Git (optional)**
+```bash
+git clone https://github.com/SunOner/aimbot.git
+cd aimbot
+```
+
+---
+
+## 4️⃣ Set Up Python Virtual Environment (Recommended)
+
+1. In the project folder, run:
+   ```bash
+   python -m venv venv
+   ```
+2. Activate it:
+   - **PowerShell:**  
+     ```bash
+     .\venv\Scripts\Activate.ps1
+     ```
+   - **CMD:**  
+     ```bash
+     venv\Scripts\activate.bat
+     ```
+
+---
+
+## 6️⃣ Show Your Phone Screen on PC (scrcpy)
+
+1. Download [scrcpy](https://github.com/Genymobile/scrcpy/releases) (e.g., `scrcpy-win64-v3.3.zip`) and extract it.
+2. On your phone, enable **Developer Options → USB Debugging**.
+3. Connect your phone to the PC with USB.
+4. In the scrcpy folder, open CMD and run:
+   ```bash
+   scrcpy --max-fps=60 --window-title="codm"
+   ```
+   **If you don’t see your device:**  
+   - In the scrcpy folder, open PowerShell and run:
+     ```bash
+     .\adb devices
+     ```
+   - If you see your device listed, you are connected. If not, USB debugging is not enabled—turn it on.
+
+5. Your phone screen should now be visible on your PC.
+
+## 7️⃣ Run the Aimbot
+
+1. Make sure your Python virtual environment is activated (see step 4).
+2. In the project folder, run:
+   ```bash
+   python run.py
+   ```
+3. Follow the hotkey instructions on screen.
+
+---
+
+## 🎮 Controls
+
+- **F2** — Exit
+- **F3** — Pause/Resume
+- **F4** — Reload configuration
+
+---
+
+## 🛠️ Troubleshooting
+
+| Problem                        | Solution                                                        |
+|---------------------------------|-----------------------------------------------------------------|
+| Torch/PyTorch CUDA error        | Check your CUDA version and re-install PyTorch for CUDA 12.1     |
+| No detection window             | Set `show_window = True` in `config.ini`                        |
+| scrcpy doesn't show phone screen| Re-check USB debugging, reconnect phone, allow permissions       |
+| ModuleNotFoundError             | Re-run pip install for the missing module                        |
+| "CPU is not supported" error    | You must use a PC with a supported Nvidia GPU and CUDA 12.1+     |
+
+---
+
+## 🚫 CPU-Only Systems Not Supported
+
+- **Aimbot will NOT run on CPU-only systems.**
+- **Nvidia GPU and CUDA are REQUIRED for real-time detection.**
+- If tested on CPU, it will crash or not work.
+
+---
+
+## 🆘 Need Help?
+
+If you need support, send your developer:
+- Your Windows version
+- Your GPU model
+- CUDA version
+- Full error message (text or screenshot)
+
+---
+
+Enjoy and use responsibly! For educational and testing purposes only.
