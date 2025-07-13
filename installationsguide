@@ -69,7 +69,7 @@ Welcome! This guide explains how to install and run **Aimbot** on a Windows PC f
 
 **Option B: Clone with Git (optional)**
 ```bash
-git clone https://github.com/SunOner/aimbot.git
+git clone https://github.com/SyedHasanHussainShah/aimbot1.git
 cd aimbot
 ```
 
@@ -100,7 +100,7 @@ cd aimbot
 3. Connect your phone to the PC with USB.
 4. In the scrcpy folder, open CMD and run:
    ```bash
-   scrcpy --max-fps=60 --window-title="codm"
+   .\scrcpy.exe --max-fps=60 --window-title="codm"
    ```
    **If you don’t see your device:**  
    - In the scrcpy folder, open PowerShell and run:
